@@ -1,21 +1,3 @@
-# con = sqlite3.connect("allusers.sqlite")
-# cur = con.cursor()
-# cur.execute('''UPDATE ADM SET status = 1 WHERE id = (SELECT id FROM allusers where tlgrmid = ?) ''',
-#                 (update.message.from_user.id,))
-#     a1 = cur.execute('''SELECT answered from JU WHERE id = (SELECT id FROM allusers where tlgrmid = ?) ''',
-#                 (update.message.from_user.id,)).fetchall()
-# con.commit()
-# con.close()
-
-
-
-# markup1 = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, resize_keyboard=True)
-#     inlinekeyboard = [[InlineKeyboardButton('ВК', url = 'https://vk.com/wolrusteens')], [InlineKeyboardButton('Telegram', url = 'https://t.me/wolrusteenss')],
-#                       [InlineKeyboardButton('Сайт', url = 'https://wolrus.org/event/teensconf')],
-#                       [InlineKeyboardButton('Наши подкасты', url = 'https://podcast.ru/1579849079')]
-#                       [InlineKeyboardButton('В начало', callback_data='В начало')]]
-#     markup = InlineKeyboardMarkup(inlinekeyboard)
-
 from telegram.ext import Updater, MessageHandler, Filters, CallbackQueryHandler
 from telegram.ext import CallbackContext, CommandHandler, ConversationHandler
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup, Bot
