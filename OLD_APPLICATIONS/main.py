@@ -10,6 +10,7 @@ import time as sleeptime
 bot = Bot(token='5774853658:AAGFBSWMB1aDvun4bVdzn_xRxsrVXxM4MvY')
 updater = Updater('5774853658:AAGFBSWMB1aDvun4bVdzn_xRxsrVXxM4MvY', use_context=True)
 
+#Фунцкция для комманды старт
 def start(update, context):
     con = sqlite3.connect("ListOfUsers.db")
     cur = con.cursor()
@@ -39,7 +40,7 @@ def start(update, context):
     con.commit()
     con.close()
 
-
+#Фунцкия для проведения еженедельного опроса
 def poll():
     global bot
     con = sqlite3.connect("ListOfUsers.db")
@@ -70,7 +71,7 @@ def poll():
     con.commit()
     con.close()
 
-
+#Функция для получения дынных с inline клавиатуры
 def inldatd(update, context):
     global bot
     if update.callback_query.data == 'SADM_set_admin':
@@ -241,7 +242,7 @@ def inldatd(update, context):
             con.commit()
             con.close()
 
-
+#Функция для анализа вводимого текста
 def chlvl(update, context):
     if update['message']['text'][:4] == 'tgid':
         con = sqlite3.connect("ListOfUsers.db")
@@ -481,7 +482,7 @@ def chlvl(update, context):
 
 
 
-
+#Основная функция бота
 def main():
     updater = Updater('5774853658:AAGFBSWMB1aDvun4bVdzn_xRxsrVXxM4MvY', use_context=True)
 
@@ -492,7 +493,6 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(text_handler)
     updater.start_polling()
-    poll()
     while True:
         if datetime.weekday(datetime.now()) == 4 and datetime.isoformat(datetime.combine(datetime.date(datetime.today()), time(hour=18, minute=30))) == datetime.isoformat(datetime.today())[:-7]:
             sleeptime.sleep(2)
